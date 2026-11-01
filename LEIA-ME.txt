@@ -1,0 +1,23 @@
+SNAKE GAME DELUXE - KIT PARA GERAR EXE PORTÁTIL
+© 2026 Cauã Meneghetti dos Santos. Todos os direitos reservados.
+
+IMPORTANTE
+Este pacote contém o código-fonte C# e um script de compilação. O executável Windows
+não pode ser compilado neste ambiente Linux; ele deve ser gerado em um computador Windows.
+
+COMO GERAR
+1. Extraia esta pasta no Windows.
+2. Dê dois cliques em GERAR_EXE.bat.
+3. Aguarde a compilação.
+4. O arquivo SnakeGameDeluxe.exe será criado nesta mesma pasta.
+5. Para usar em outro computador Windows, copie o EXE.
+
+REQUISITOS PARA COMPILAR
+Windows com .NET Framework 4.x e o compilador csc.exe disponível em:
+%WINDIR%\Microsoft.NET\Framework\v4.0.30319\csc.exe
+ou
+%WINDIR%\Microsoft.NET\Framework64\v4.0.30319\csc.exe
+
+O EXE é uma versão portátil Windows Forms, sem instalador e sem dependências externas.
+Os recordes ficam salvos no perfil do usuário em AppData\Roaming\SnakeGameDeluxe.
+Controles: setas ou WASD para mover; Espaço para pausar.

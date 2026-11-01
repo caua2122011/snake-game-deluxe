@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101820">
+  <meta name="description" content="Snake Game Deluxe - jogo da cobrinha por Cauã Meneghetti dos Santos.">
+  <title>Snake Game Deluxe</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">蛇</span><div><h1>SNAKE GAME <em>DELUXE</em></h1><small>ARCADE EDITION</small></div></div>
+      <div class="top-actions"><button id="installBtn" class="ghost hidden">Instalar jogo</button><button id="soundBtn" class="ghost" aria-label="Ativar ou desativar som">Som: ligado</button></div>
+    </header>
+
+    <section id="homeScreen" class="screen home-grid">
+      <div class="panel welcome">
+        <p class="eyebrow">BEM-VINDO AO ARCADE</p>
+        <h2>Entre na<br><span>arena.</span></h2>
+        <p class="muted">Cadastre seu nome, escolha a dificuldade e tente chegar ao topo do ranking.</p>
+        <label for="playerName">NOME DO JOGADOR</label>
+        <input id="playerName" maxlength="20" autocomplete="nickname" placeholder="Digite seu nome">
+        <label for="difficulty">DIFICULDADE</label>
+        <select id="difficulty">
+          <option value="easy">Fácil · mais lento</option>
+          <option value="normal" selected>Normal · clássico</option>
+          <option value="hard">Difícil · rápido</option>
+        </select>
+        <button id="startBtn" class="primary">▶ &nbsp; JOGAR AGORA</button>
+        <p id="homeMessage" class="message" aria-live="polite"></p>
+      </div>
+      <aside class="panel ranking">
+        <div class="panel-heading"><div><p class="eyebrow">HALL DA FAMA</p><h2>Ranking</h2></div><span class="trophy">🏆</span></div>
+        <ol id="leaderboard" class="leaderboard"><li class="empty">Ainda não há recordes. Seja o primeiro!</li></ol>
+        <p class="tiny muted">Recordes salvos neste dispositivo e navegador.</p>
+        <button id="clearScoresBtn" class="text-button">Apagar ranking deste dispositivo</button>
+      </aside>
+      <div class="howto panel">
+        <div><b>⌨️ Computador</b><span>Setas ou WASD para mover · Espaço para pausar</span></div>
+        <div><b>📱 Celular</b><span>Use os controles na tela ou deslize sobre o tabuleiro</span></div>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen game-layout hidden">
+      <div class="game-main panel">
+        <div class="game-heading">
+          <div><p class="eyebrow">JOGADOR</p><h2 id="currentPlayer">—</h2></div>
+          <div class="stats">
+            <div><small>PONTOS</small><strong id="score">0</strong></div>
+            <div><small>RECORDE</small><strong id="best">0</strong></div>
+          </div>
+        </div>
+        <div class="board-wrap">
+          <canvas id="board" width="600" height="450" aria-label="Tabuleiro do jogo da cobrinha"></canvas>
+          <div id="overlay" class="overlay">
+            <div><span class="overlay-icon">🐍</span><h2 id="overlayTitle">Preparado?</h2><p id="overlayText">Pressione iniciar para jogar.</p><button id="overlayBtn" class="primary">COMEÇAR</button></div>
+          </div>
+        </div>
+        <div class="game-actions">
+          <button id="pauseBtn" class="secondary">Ⅱ Pausar</button>
+          <button id="restartBtn" class="secondary">↻ Reiniciar</button>
+          <button id="homeBtn" class="secondary">⌂ Menu</button>
+        </div>
+        <div class="mobile-controls" aria-label="Controles direcionais">
+          <button data-dir="up" aria-label="Cima">▲</button>
+          <div><button data-dir="left" aria-label="Esquerda">◀</button><button data-dir="down" aria-label="Baixo">▼</button><button data-dir="right" aria-label="Direita">▶</button></div>
+        </div>
+      </div>
+      <aside class="panel side-info">
+        <p class="eyebrow">MISSÃO ATUAL</p><h3 id="difficultyLabel">Normal</h3>
+        <p class="muted">Coma as frutas, cresça e evite as paredes, obstáculos e seu próprio corpo.</p>
+        <div class="legend"><span class="dot green"></span> Você <span class="dot red"></span> Fruta <span class="dot gray"></span> Obstáculo</div>
+        <div class="tip"><b>DICA DE ARCADE</b><p>Planeje suas curvas com antecedência. Quanto mais você come, maior fica a cobrinha!</p></div>
+        <p class="tiny muted">O recorde é atualizado quando a partida termina.</p>
+      </aside>
+    </section>
+
+    <footer>© 2026 <strong>Cauã Meneghetti dos Santos</strong> · Todos os direitos reservados · Snake Game Deluxe</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
